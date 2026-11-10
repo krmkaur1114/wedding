@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Services | {{ site_name }}{% endblock %}
+{% block content %}
+<section class="page-hero"><h1>Our Services</h1><p>Making your dream wedding come true.</p></section>
+<section class="section"><div class="container">
+  <div class="grid cols-3">
+    {% for img, t, d in [
+      ('venue','Venue Decoration','Floral decoration, stage design, lighting and theme-based venue arrangements.'),
+      ('catering','Catering Services','Vegetarian and non-vegetarian cuisines prepared by experienced chefs.'),
+      ('photography','Photography & Videography','Professional photographers and cinematic wedding videos.'),
+      ('music','Music & DJ','Live music, DJ nights and dance performances for your guests.'),
+      ('makeup','Bridal Makeup','Bridal makeup, hairstyling and grooming by expert artists.'),
+      ('planning','Complete Wedding Planning','From invitations to the final farewell, we manage every detail.')] %}
+    <div class="card">
+      <div class="card-media"><img src="{{ url_for('static', filename='image/' ~ img ~ '.jpg') }}" alt="{{ t }}" onerror="this.style.display='none'"></div>
+      <div class="card-body"><h3>{{ t }}</h3><p>{{ d }}</p></div>
+    </div>
+    {% endfor %}
+  </div>
+</div></section>
+{% endblock %}

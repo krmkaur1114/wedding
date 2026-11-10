@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Create Account | {{ site_name }}{% endblock %}
+{% block content %}
+<section class="form-page">
+  <div class="form-card narrow">
+    <h1>Create Account</h1>
+    <p class="subtitle">Join {{ site_name }}</p>
+    <form method="POST" action="{{ url_for('register') }}">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Create password" required minlength="6">
+      <label for="confirm_password">Confirm Password</label>
+      <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password" required>
+      <button type="submit" class="btn btn-block">Create Account</button>
+    </form>
+    <p class="form-foot">Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+  </div>
+</section>
+{% endblock %}

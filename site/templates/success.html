@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% from "_icons.html" import icon_svg %}
+{% block title %}Booking Successful | {{ site_name }}{% endblock %}
+{% block content %}
+<div class="center-box"><div class="panel">
+  <div class="icon big">{{ icon_svg('sparkles', 40) }}</div>
+  <h1>Booking Successful!</h1>
+  <p style="color:var(--muted);margin:8px 0 18px">Thank you{% if n %}, {{ n }}{% endif %}. We will contact you soon to confirm your wedding details.</p>
+  <a href="{{ url_for('home') }}" class="btn">Back to Home</a>
+  {% if session.get('user') %}<a href="{{ url_for('dashboard') }}" class="btn btn-outline">My Bookings</a>{% endif %}
+</div></div>
+{% endblock %}

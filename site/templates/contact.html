@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% from "_icons.html" import icon_svg %}
+{% block title %}Contact | {{ site_name }}{% endblock %}
+{% block content %}
+<section class="page-hero"><h1>Contact Us</h1><p>Questions about your wedding? Send us a message.</p></section>
+<section class="section"><div class="container contact-grid">
+  <div class="contact-info">
+    <h2>Contact Information</h2>
+    <p class="ci">{{ icon_svg('pin', 22) }}<span>Address: Phagwara, Punjab, India</span></p>
+    <p class="ci">{{ icon_svg('phone', 22) }}<span>Phone: +91 98765 43210</span></p>
+    <p class="ci">{{ icon_svg('mail', 22) }}<span>Email: info@example.com</span></p>
+    <p class="ci">{{ icon_svg('clock', 22) }}<span>Time: 9 AM - 6 PM</span></p>
+  </div>
+  <div class="form-card">
+    <form method="POST" action="{{ url_for('contact') }}">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" placeholder="Subject">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Write your message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </div>
+</div></section>
+{% endblock %}

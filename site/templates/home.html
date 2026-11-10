@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% from "_icons.html" import icon_svg %}
+{% block title %}Home | {{ site_name }}{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Make Your Dream Wedding Beautiful</h1>
+  <p>Complete wedding event management: decoration, catering, photography, music and professional planning.</p>
+  <a href="{{ url_for('booking') }}" class="btn btn-gold">Book Your Wedding</a>
+  <a href="{{ url_for('packages') }}" class="btn btn-outline" style="color:#fff;border-color:#fff;margin-left:8px">View Packages</a>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Our Wedding Services</h2>
+    <p class="section-sub">Everything you need for your big day, handled by one team.</p>
+    <div class="grid cols-4">
+      {% for icon, t, d in [('flower','Wedding Decoration','Stage decoration, flowers and wedding themes.'),('utensils','Catering Services','Delicious food and customised wedding menus.'),('camera','Photography','Capture your special moments professionally.'),('music','DJ & Music','Music and entertainment for every function.')] %}
+      <div class="card icon-card"><div class="icon">{{ icon_svg(icon) }}</div><h3>{{ t }}</h3><p>{{ d }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <h2 class="section-title">Why Choose Us?</h2>
+    <p class="section-sub">Planners who treat your wedding like their own.</p>
+    <div class="grid cols-3">
+      {% for icon, t, d in [('star','Experienced Team','Professional wedding planners for your special day.'),('rupee','Affordable Packages','Wedding packages to match your budget.'),('heart','Quality Service','We make every wedding memorable and beautiful.')] %}
+      <div class="card icon-card"><div class="icon">{{ icon_svg(icon) }}</div><h3>{{ t }}</h3><p>{{ d }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

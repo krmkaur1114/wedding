@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | {{ site_name }}{% endblock %}
+{% block content %}
+<section class="section"><div class="container">
+  <div class="panel">
+    <h1>Welcome, {{ name }}</h1>
+    <p style="color:var(--muted)">You have successfully logged in.</p>
+    <div class="actions">
+      <a href="{{ url_for('booking') }}" class="btn">Book Event</a>
+      <a href="{{ url_for('logout') }}" class="btn btn-outline">Logout</a>
+    </div>
+    <h2 style="margin-top:30px">My Bookings</h2>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Name</th><th>Date</th><th>Package</th></tr>
+        {% for b in bookings %}
+        <tr><td>{{ b.name }}</td><td>{{ b.date }}</td><td>{{ b.package }}</td></tr>
+        {% else %}
+        <tr><td colspan="3" class="empty">No bookings yet. Click "Book Event" to make your first one.</td></tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div></section>
+{% endblock %}

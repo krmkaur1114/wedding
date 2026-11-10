@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Booking | {{ site_name }}{% endblock %}
+{% block content %}
+<section class="form-page">
+  <div class="form-card">
+    <h1>Wedding Booking</h1>
+    <p class="subtitle">Tell us your date and package. We will contact you soon.</p>
+    <form method="POST" action="{{ url_for('booking') }}">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" value="{{ session.get('user','') }}" placeholder="Enter your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" value="{{ session.get('email','') }}" placeholder="Enter your email" required>
+
+      <label for="package">Package</label>
+      <select id="package" name="package" required>
+        <option value="">Select Package</option>
+        {% for p in ['Silver','Gold','Platinum'] %}
+        <option value="{{ p }}" {{ 'selected' if selected==p }}>{{ p }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter phone number">
+
+      <label for="date">Wedding Date</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Write your message"></textarea>
+
+      <button type="submit" class="btn btn-block">Book Now</button>
+    </form>
+  </div>
+</section>
+<script>document.getElementById('date').min = new Date().toISOString().split('T')[0];</script>
+{% endblock %}

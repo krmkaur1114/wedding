@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Logged Out | {{ site_name }}{% endblock %}
+{% block content %}
+<div class="center-box"><div class="panel">
+  <h1>Logged Out</h1>
+  <p style="color:var(--muted);margin:8px 0 18px">You have successfully logged out.</p>
+  <a href="{{ url_for('login') }}" class="btn">Login Again</a>
+  <a href="{{ url_for('home') }}" class="btn btn-outline">Home</a>
+</div></div>
+{% endblock %}

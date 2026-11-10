@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Gallery | {{ site_name }}{% endblock %}
+{% block content %}
+<section class="page-hero"><h1>Wedding Gallery</h1><p>Decoration, photography and setups we can create for you.</p></section>
+<section class="section"><div class="container">
+  <div class="grid cols-4">
+    {% for img, t, p in [
+      ('stage','Wedding Sofa Decoration','₹25,000'),('wedding_background','Wedding Background Setup','₹40,000'),
+      ('beach_venue','Beach Wedding Venue','₹1,50,000'),('mandap','Mandap Decoration','₹60,000'),
+      ('hands','Wedding Photography','₹50,000'),('flowers','Flower Decoration','₹65,000'),
+      ('cake','Wedding Cake','₹15,000'),('bridal_entry','Bridal Entry','₹45,000'),
+      ('ring_ceremony','Ring Ceremony','₹60,000'),('sangeet_night','Sangeet Night','₹55,000'),
+      ('wedding_lights','Wedding Lighting','₹46,000'),('flower_entry','Flower Entry','₹37,000'),
+      ('wedding_chairs','Luxury Seating Arrangement','₹45,000'),('table_decoration','Table Decoration','₹60,000'),
+      ('buffet_setup','Buffet Setup','₹65,000'),('welcome_gate','Welcome Gate Decoration','₹35,000'),
+      ('couple_photoshoot','Couple Photoshoot','₹70,000'),('drone_photography','Drone Photography','₹80,000'),
+      ('bridal_room','Bridal Room Decoration','₹30,000'),('gift_counter','Gift Counter Setup','₹12,000')] %}
+    <div class="card">
+      <div class="card-media" style="height:190px"><img src="{{ url_for('static', filename='image/' ~ img ~ '.jpg') }}" alt="{{ t }}" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="card-body" style="padding:16px"><h3 style="font-size:20px">{{ t }}</h3><div class="price" style="margin:0">{{ p }}</div></div>
+    </div>
+    {% endfor %}
+  </div>
+</div></section>
+{% endblock %}

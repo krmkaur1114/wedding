@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Rooms | {{ site_name }}{% endblock %}
+{% block content %}
+<section class="page-hero"><h1>Luxury Wedding Rooms</h1><p>Luxury rooms for the bride, groom and wedding guests.</p></section>
+<section class="section"><div class="container">
+  <div class="grid cols-3">
+    {% for img, t, p, feats in [
+      ('luxury_room','Luxury Wedding Room','₹5,000',['AC Room','Luxury Interior','Beautiful Decoration','Breakfast Included']),
+      ('bridal_room','Bridal Special Room','₹8,000',['Flower Decoration','Makeup Area','Premium Setup','Photo Corner']),
+      ('royal_suite','Royal Suite Room','₹12,000',['King Size Bed','Private Space','Room Service','Premium View']),
+      ('groom_room','Couple Wedding Room','₹10,000',['Romantic Decoration','Candle Setup','Luxury Bed','Room Service']),
+      ('guest_room','Guest Room','₹3,000',['Comfortable Stay','Clean Room','WiFi Facility','Food Service']),
+      ('premium_suite','Premium Suite','₹15,000',['Luxury Furniture','Large Space','VIP Service','Wedding Special Setup'])] %}
+    <div class="card">
+      <div class="card-media"><img src="{{ url_for('static', filename='image/' ~ img ~ '.jpg') }}" alt="{{ t }}" onerror="this.style.display='none'"></div>
+      <div class="card-body">
+        <h3>{{ t }}</h3><div class="price">{{ p }} / night</div>
+        <ul>{% for f in feats %}<li>{{ f }}</li>{% endfor %}</ul>
+        <a href="{{ url_for('booking') }}" class="btn btn-block">Book Room</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div></section>
+{% endblock %}

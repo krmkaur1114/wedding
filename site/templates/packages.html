@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Packages | {{ site_name }}{% endblock %}
+{% block content %}
+<section class="page-hero"><h1>Our Wedding Packages</h1><p>Choose the perfect package for your dream wedding.</p></section>
+<section class="section"><div class="container">
+  <div class="grid cols-3">
+    {% for name, cls, price, feats, featured in [
+      ('Silver','pkg-silver','₹49,999',['Venue Decoration','Basic Lighting','Photography','Flower Decoration','1 Event Coordinator','Mandap Setup','Welcome Gate'],false),
+      ('Gold','pkg-gold','₹99,999',['Premium Decoration','HD Photography & Videography','DJ & Music','Catering (300 Guests)','Bridal Entry Setup','Event Manager','Welcome Gate'],true),
+      ('Platinum','pkg-platinum','₹1,99,999',['Luxury Stage Decoration','Drone Photography','Live Band & DJ','Premium Catering','Bridal & Groom Entry','Fireworks','Full Wedding Planning'],false)] %}
+    <div class="card {{ 'featured' if featured }}">
+      {% if featured %}<span class="badge">Most Popular</span>{% endif %}
+      <div class="pkg-head {{ cls }}"><h3>{{ name }}</h3><div class="price">{{ price }}</div></div>
+      <div class="card-body">
+        <ul>{% for f in feats %}<li>{{ f }}</li>{% endfor %}</ul>
+        <a href="{{ url_for('booking', package=name) }}" class="btn btn-block">Book {{ name }}</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div></section>
+{% endblock %}

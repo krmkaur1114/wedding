@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% from "_icons.html" import icon_svg %}
+{% block title %}About | {{ site_name }}{% endblock %}
+{% block content %}
+<section class="page-hero"><h1>About {{ site_name }}</h1><p>Making every wedding beautiful and memorable.</p></section>
+
+<section class="section"><div class="container split">
+  <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=80" alt="Wedding celebration">
+  <div>
+    <h2>Who We Are</h2>
+    <p>{{ site_name }} creates unforgettable weddings with elegant decoration, photography, catering and entertainment.</p>
+    <p>Our experienced team plans every event with creativity and care, so your special day stays stress-free.</p>
+    <a href="{{ url_for('contact') }}" class="btn">Talk to Us</a>
+  </div>
+</div></section>
+
+<section class="section alt"><div class="container">
+  <h2 class="section-title">Our Services</h2>
+  <p class="section-sub">From the first idea to the final farewell.</p>
+  <div class="grid cols-4">
+    {% for icon, t, d in [('clipboard','Wedding Planning','Complete wedding planning and management.'),('flower','Decoration','Luxury floral and theme decoration.'),('camera','Photography','Professional wedding photography.'),('music','Entertainment','DJ, live music and dance shows.')] %}
+    <div class="card icon-card"><div class="icon">{{ icon_svg(icon) }}</div><h3>{{ t }}</h3><p>{{ d }}</p></div>
+    {% endfor %}
+  </div>
+</div></section>
+
+<section class="section"><div class="container">
+  <h2 class="section-title">Why Choose Us?</h2>
+  <p class="section-sub">What our couples value most.</p>
+  <div class="grid cols-4">
+    {% for icon, t, d in [('check','Experienced Team','Years of real wedding experience.'),('check','Affordable Packages','Clear prices with no surprises.'),('check','Creative Decoration','Fresh themes made for you.'),('check','100% Satisfaction','We stay until the last guest leaves.')] %}
+    <div class="card icon-card"><div class="icon">{{ icon_svg(icon) }}</div><h3>{{ t }}</h3><p>{{ d }}</p></div>
+    {% endfor %}
+  </div>
+</div></section>
+{% endblock %}

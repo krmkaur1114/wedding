@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Login | {{ site_name }}{% endblock %}
+{% block content %}
+<section class="form-page">
+  <div class="form-card narrow">
+    <h1>Welcome Back</h1>
+    <p class="subtitle">Login to {{ site_name }}</p>
+    <form method="POST" action="{{ url_for('login') }}">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      <button type="submit" class="btn btn-block">Login</button>
+    </form>
+    <p class="form-foot">Don't have an account? <a href="{{ url_for('register') }}">Create Account</a></p>
+  </div>
+</section>
+{% endblock %}
